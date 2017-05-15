@@ -7,7 +7,12 @@
 	text-align: center;
 }
 
-
+.game{
+	display: flex;
+	justify-content: space-around;
+	align-items: stretch;
+	flex-wrap: wrap;
+}
 .touch{
 	width: 100px;
 	height: 100px;
@@ -21,7 +26,7 @@
 	
 }
 #blue,#bl{
-	background: rgb(40, 105, 205);
+	background: rgb(40, 105, 225);
 }
 #yellow,#ylw{
 	background: rgb(238, 255, 0);
@@ -31,12 +36,12 @@
 	background: rgb(242, 134, 19);
 }
 #teal{
-	background: rgb(6, 209, 205);
+	background: rgb(6, 229, 205);
 }
 #purp{
 	background: rgb(209, 6, 185);
 }
 .highlight{
 	opacity: 0.25;
-	box-shadow: 0 0 5px black;
+	box-shadow: 0 0 7px black;
 }
