@@ -9,8 +9,8 @@ $(document).ready(function(){
 	gameReady.on('click',function(){
 		gameReady.hide('slow')
 		gameArena.show('fast')
-		//time out does not work, need top delay start
-		setTimeout(showSequence(0),2000)
+// game will start 1sec after click
+		setTimeout(function(){showSequence(0)},1000)
 	})	
 
 	//init vars
@@ -19,7 +19,6 @@ $(document).ready(function(){
 		easyIndex : [],
 		hardIndex :[]
 	}
-	// const colorHard = ['orng','teal','purp','green','red','blue','yellow']
 
 
 
@@ -45,14 +44,19 @@ $(document).ready(function(){
 
 
 
-//time out function to show 
+//show the color sequence
+/* !!! needs to flash when same color is selected in a row !!! */
 	function showSequence(i) {
     	if (i > comp.easyIndex.length) return;
+
     		setTimeout(function () {
    				$('#'+comp.easyIndex[i]).removeClass('highlight');
        			showSequence(++i);
-    		}, 1000);
-		$('#'+comp.easyIndex[i]).addClass('highlight');
+    		}, 500);
+    		setTimeout(function(){
+				$('#'+comp.easyIndex[i]).addClass('highlight');
+			},100)
+    		
 		}
 	
 //fills the array with color
@@ -60,6 +64,11 @@ $(document).ready(function(){
 		let selection = randomEasy();
 		const colorEasy = ['green','red','blue','yellow']
 		comp.easyIndex.push(colorEasy[selection])
+	}
+	function populateHard() {
+		let selection = randomHard();
+		const colorHard = ['orng','teal','purp','green','red','blue','yellow']
+		comp.hardIndex.push(colorHard[selection])
 	}
 //Check user answeres
 	function userCheck() {
@@ -75,9 +84,8 @@ $(document).ready(function(){
 			comp.easyIndex = [];
 			userTouch = [];
 		}
-
 	}
-	
+	/* !!!!  need a game over screen and reset !!!! */
 	function gameOver(){console.log("game over man")};
 
 
