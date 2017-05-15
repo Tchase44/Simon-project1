@@ -1,22 +1,29 @@
-
+.gameReady{
+	z-index: 5;
+	margin: 0 auto;
+	width: 75vw;
+	height: 75vh;
+	background: rgba(505,50,50,0.75);
+	text-align: center;
+}
 
 
 .touch{
 	width: 100px;
 	height: 100px;
 }
-#red{
+#red,#rd{
 	background: rgb(237, 33, 33);
 	
 }
-#green{
+#green,#grn{
 	background: rgb(23, 170, 48);
 	
 }
-#blue{
+#blue,#bl{
 	background: rgb(40, 105, 205);
 }
-#yellow{
+#yellow,#ylw{
 	background: rgb(238, 255, 0);
 	
 }
