@@ -1,11 +1,17 @@
 
 
-
-
-
 $(document).ready(function(){
-	//overlay div for game prompt
-	alert('are you ready')
+	const gameReady = $('.gameReady');
+	const gameArena = $('.gameArena');
+	
+//overlay div for game prompt
+	gameArena.hide()
+	gameReady.on('click',function(){
+		gameReady.hide('slow')
+		gameArena.show('fast')
+		//time out does not work, need top delay start
+		setTimeout(showSequence(0),2000)
+	})	
 
 	//init vars
 	let userTouch = [];
@@ -15,19 +21,30 @@ $(document).ready(function(){
 	}
 	// const colorHard = ['orng','teal','purp','green','red','blue','yellow']
 
-	//returns random number
+
+
+
+//returns random number
 	const randomEasy = () => Math.floor(Math.random()*4)
+	const randomHard = () => Math.floor(Math.random()*7)
 	populateEasy();
-	showSequence(0);
+	
 	console.log(comp.easyIndex)
 
-	$('.touch').on("click",function(){
 
+// User click 
+	$('.touch').on("click",function(){
 		userTouch.push($(this).attr("id"))
 		console.log("user= "+userTouch)
-		userCheck();
+
+		if (userTouch.length===comp.easyIndex.length) {
+			userCheck();
+		}
 
 	})
+
+
+
 //time out function to show 
 	function showSequence(i) {
     	if (i > comp.easyIndex.length) return;
@@ -51,6 +68,8 @@ $(document).ready(function(){
     		
 		if(check){
 			populateEasy()
+			showSequence(0)
+			userTouch = [];
 		}else{
 			gameOver();
 			comp.easyIndex = [];
