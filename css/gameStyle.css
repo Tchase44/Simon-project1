@@ -1,0 +1,23 @@
+
+
+
+.touch{
+	width: 100px;
+	height: 100px;
+}
+#red{
+	background: red;
+	/*Replace ^^^ with rgb*/
+}
+#green{
+	background: green;
+	/*Replace ^^^ with rgb*/
+}
+#blue{
+	background: blue;
+	/*Replace ^^^ with rgb*/
+}
+#yellow{
+	background: gold;
+	/*Replace ^^^ with rgb*/
+}
