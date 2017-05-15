@@ -13,40 +13,44 @@ $(document).ready(function(){
 		easyIndex : [],
 		hardIndex :[]
 	}
-	
-	// const colorHard = ['','','','','',''];
+	// const colorHard = ['orng','teal','purp','green','red','blue','yellow']
 
 	//returns random number
 	const randomEasy = () => Math.floor(Math.random()*4)
-	populate();
-
+	populateEasy();
+	showSequence(0);
 	console.log(comp.easyIndex)
 
 	$('.touch').on("click",function(){
 
-		$(this).toggleClass("highlight")
-		
 		userTouch.push($(this).attr("id"))
 		console.log("user= "+userTouch)
 		userCheck();
+
 	})
-
-
-
-	function populate() {
+//time out function to show 
+	function showSequence(i) {
+    	if (i > comp.easyIndex.length) return;
+    		setTimeout(function () {
+   				$('#'+comp.easyIndex[i]).removeClass('highlight');
+       			showSequence(++i);
+    		}, 1000);
+		$('#'+comp.easyIndex[i]).addClass('highlight');
+		}
+	
+//fills the array with color
+	function populateEasy() {
 		let selection = randomEasy();
 		const colorEasy = ['green','red','blue','yellow']
 		comp.easyIndex.push(colorEasy[selection])
 	}
-///Check user answeres
+//Check user answeres
 	function userCheck() {
-
-		if( userTouch.every(function(element, index) {
-    		return element === comp.easyIndex[index]})
-    		){
-			populate()
-			console.log(comp.easyIndex)
-
+		let check = userTouch.every(function(element, index) {
+    	return element === comp.easyIndex[index]})
+    		
+		if(check){
+			populateEasy()
 		}else{
 			gameOver();
 			comp.easyIndex = [];
@@ -56,13 +60,7 @@ $(document).ready(function(){
 	}
 	
 	function gameOver(){console.log("game over man")};
-/*
-	function populateEasy(){
-		for (let i = 0; i < 500; i++) {
-			populate();
-		}
-	}
-*/
+
 
 
 
