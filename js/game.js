@@ -9,36 +9,54 @@ $(document).ready(function(){
 		easyIndex : [],
 		hardIndex :[]
 	}
-	const colorEasy = ['green','red','blue','yellow']
+	
+	// const colorHard = ['','','','','',''];
+
+		//returns random number to easy
+	const randomEasy = () => Math.floor(Math.random()*4)
+	populate();
+
+	console.log(comp.easyIndex)
 
 	$('.touch').on("click",function(){
-		populate()
+
 		userTouch.push($(this).attr("id"))
-		// console.log(`cpu ${comp.easyIndex}`)
-		console.log(userTouch)
+		// console.log(userTouch)
+		userCheck();
 	})
+
 
 
 	function populate() {
 		let selection = randomEasy();
+		const colorEasy = ['green','red','blue','yellow']
 		comp.easyIndex.push(colorEasy[selection])
 	}
 
-	//returns random number fo easy
-	const randomEasy = () => Math.floor(Math.random()*4)
+	function userCheck() {
+		let i = 0
+		for (i; i < userTouch.length; i++) {
 
+			if(userTouch[i] === comp.easyIndex[i]){
+				populate();
+			}else{
+				gameOver();
+				comp.easyIndex = [];
+				userTouch = [];
+			}
+
+		}
+	}
+	function gameOver(){console.log("game over man")};
 /*
-comp array based off random numbers
-
-display num/color to user
-
-userTouch recorded && compared
-
-must be exact match
-
-keep track of high scores
-
+	function populateEasy(){
+		for (let i = 0; i < 500; i++) {
+			populate();
+		}
+	}
 */
-//Bounus = Hard Mode
+
+
+
 
 });
