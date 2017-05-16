@@ -6,32 +6,15 @@ $(document).ready(function(){
 	const gameOverMan = $('section');
 	const highScreen = $('.highScoreScreen');
 //overlay div for game prompt
+	$('#hard').hide()
 	gameArena.hide()
 	gameOverMan.hide()
 	highScreen.hide()
 //returns random number
 	const randomEasy = () => Math.floor(Math.random()*4)
-	const randomHard = () => Math.floor(Math.random()*7)
 
-// Ready to play??
-	gameReady.on('click',function(){
-		gameReady.hide('slow')
-		gameArena.show('fast')
-		
-		//starting color
-		populateEasy();
 
-		// game will start 1sec after click
-			startGame();
-		})
-//reset
-	$('h2').on("click",(e)=>{
-		e.preventDefault();
-		reset();
-	})
-	
-	//init vars
-	// let user.touches = [];
+//user and computer
 	const user = {
 		touches : [],
 		score : 0
@@ -40,8 +23,27 @@ $(document).ready(function(){
 		easyIndex : [],
 		hardIndex :[],
 		highScore : 0,
+		highScoreHard : 0
 	}
+// Ready to play??
+// easy mode
+	$('#four').on('click',function(){
+		gameReady.hide('slow')
+		gameArena.show('fast')
+		$('#hard').hide()
+		
+		//starting color
+		populateEasy();
 
+		// game will start 1sec after click
+		startGame();
+	})
+
+//reset
+	$('h2').on("click",(e)=>{
+		e.preventDefault();
+		reset();
+	})
 	
 	console.log(comp.easyIndex)
 
@@ -56,9 +58,9 @@ $(document).ready(function(){
 
 	})
 //start the game after delay
-function startGame(){
-	setTimeout(function(){showSequence(0)},900)
-}
+	function startGame(){
+		setTimeout(function(){showSequence(0)},900)
+	}
 
 
 //show the color sequence
@@ -81,11 +83,7 @@ function startGame(){
 		const colorEasy = ['green','red','blue','yellow']
 		comp.easyIndex.push(colorEasy[selection])
 	}
-	function populateHard() {
-		let selection = randomHard();
-		const colorHard = ['orng','teal','purp','green','red','blue','yellow']
-		comp.hardIndex.push(colorHard[selection])
-	}
+
 //Check user answeres
 	function userCheck() {
 		//will return true if all are right
