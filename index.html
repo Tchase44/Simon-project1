@@ -5,20 +5,32 @@
 	<meta charset="utf-8">
 	<meta >
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/gameStyle.css">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="js/game.js"></script>
 </head>
 <body>
-<div class="gameReady">Are You Ready!!</div>
-<div id="easy" class="gameArena">
+<header class="gameReady"> <h1>Are You Ready!!</h1> </header>
+<section class="gameOver">
+	<p>The High Score - <span id="highScore"></span></p>
+	<p>Your Score - <span id="userScore"></span></p>
+	<h1>Game Over Man</h1>
+	<h2>Try Again??</h2>
+</section>
+<div class="highScoreScreen">
+	<h1>New High Score!</h1>
+	<h3></h3>
+	<h2>Try Again??</h2>
+</div>
+<main id="easy" class="gameArena">
 	<div id="standard" class="game">
 		<div id="green" class="touch"></div>
 		<div id="red" class="touch"></div>
 		<div id="blue" class="touch"></div>
 		<div id="yellow" class="touch"></div>
-	</div>
-	<!-- <div id="hard" class="gameArena">
+	</main>
+	<!--  <div id="hard" class="gameArena">
 		<div id="red" class="touch"></div>
 		<div id="yellow" class="touch"></div>
 		<div id="green" class="touch"></div>
@@ -26,7 +38,7 @@
 		<div id="teal" class="touch"></div>
 		<div id="purp" class="touch"></div>
 		<div id="blue" class="touch"></div>
-	</div>-->
+	</div> -->
 </div>
 
 

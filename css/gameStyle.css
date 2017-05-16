@@ -3,11 +3,41 @@ body{
 }
 .gameReady{
 	z-index: 5;
+	font-size: 200%;
 	margin: 0 auto;
 	width: 75vw;
 	height: 75vh;
 	background: rgba(505,50,50,0.75);
 	text-align: center;
+}
+.gameOver{
+	font-family: 'VT323', monospace;
+	text-align: center;
+	margin: 0 auto;
+	width: 100vw;
+	height: 100vh;
+	background:rgb(1,1,1);
+	color: rgb(56, 183, 18);
+}
+.gameOver h2{
+	font-size: 120%;
+}
+.gameOver h2:hover{
+	color: rgba(56, 183, 18,0.5)
+}
+/*@keyframes scroll {
+	0% { top: 100%; }
+	100% { top: -170%; }
+}*/
+.gameOver h1{	
+	font-size: 400%;	
+	/*animation:scroll 10s linear 4s infinite;*/
+}
+.highScoreScreen{
+	text-align: center;
+	width:100vw;
+	height: 100vh;
+	background: rgba(505,50,50,0.75)
 }
 .gameArena{
 	display:flex;
