@@ -7,7 +7,7 @@ body{
 	font-size: 200%;
 	margin: 0 auto;
 	width: 75vw;
-	height: 75vh;
+	height: 85vh;
 	background: rgba(505,50,50,0.75);
 	text-align: center;
 	padding: 30px; 
@@ -20,6 +20,7 @@ body{
 .gameReady h3{
 	padding: 10px;
 	font-weight: bold;
+	font-family: 'Bitter', serif;
 }
 .gameReady p{
 	padding: 10px;
@@ -74,7 +75,7 @@ body{
 	font-family:  'Lobster Two', cursive;
 }
 .highScoreScreen h2{
-	margin-top: 23%;
+	margin-top: 30px;
     font-size: 126%;
     font-family:  'Lobster Two', cursive;
 }
@@ -82,6 +83,8 @@ body{
 	cursor: pointer;
 	color: rgba(1,1,1,0.5);
 }
+#four{}
+#seven{}
 .gameArena{
 	display:flex;
 	justify-content: center;
@@ -94,36 +97,94 @@ body{
 	flex-wrap: wrap;
 	width: 250px;
 }
+
 .touch{
 	width: 100px;
 	height: 100px;
 }
-#red,#rd{
+#standard div{
+    width: 125px;
+    height: 124px;
+}
+#red{
 	background: rgb(237, 33, 33);
 	border-radius: 0 45px 0 0;
 	
 }
-#green,#grn{
+#green{
 	background: rgb(23, 170, 48);
 	border-radius: 45px 0 0 0;
 	
 }
-#blue,#blu{
+#blue{
 	background: rgb(40, 105, 225);
 	border-radius: 0 0 0 45px;
 }
-#yellow,#ylw{
+#yellow{
 	background: rgb(238, 255, 0);
 	border-radius: 0 0 45px 0;
 	
 }
+#hard{
+	min-width: 420px;
+	margin-top: 55px;
+    display: grid;
+    grid-template-columns: 11% 11% 11% 1% 11% 1% 11% 11% 11%;
+    /*grid-template-rows: 5% 5% 5% 5% 5%;*/
+    grid-gap: 0px;
+
+}
+#hard div{
+	width: 120px;
+	height: 120px;
+}
+#rd{
+	/*flex-grow: 1;*/
+	/*grid-area:topC;*/
+	grid-column:5/6;
+  	grid-row:1;
+	background: rgb(237, 33, 33);
+}
+#grn{
+	/*flex-grow: 1;*/
+	/*grid-area:topL;*/
+  	grid-column:3/4;
+  	grid-row:2;
+	background: rgb(23, 170, 48);
+}
+#blu{
+	/*flex-grow: 2;*/
+	/*grid-area:topR;*/
+ 	grid-column:7/8;
+ 	grid-row:2;
+	background: rgb(40, 105, 225);
+}
+#ylw{
+	/*flex-grow: 1;*/
+	/*grid-area:midd;*/
+	grid-column:5/6;
+	grid-row: 3;
+	background: rgb(238, 255, 0);
+}
 #orng{
+	/*flex-grow: 1;*/
+	/*grid-area:botC;*/
+	grid-column:5/6;
+	grid-row:5;
 	background: rgb(242, 134, 19);
 }
 #teal{
+	/*flex-grow: 2;*/
+	/*grid-area:botR;*/
+	grid-column:7/8;
+	grid-row:4;
 	background: rgb(6, 229, 205);
 }
 #purp{
+	/*flex-grow: 2;*/
+	/*grid-area:botL;*/
+	grid-column:3/4;
+	grid-row:4;
 	background: rgb(209, 6, 185);
 }
 .highlight{
