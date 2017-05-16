@@ -1,3 +1,6 @@
+body{
+	background: rgb(250,250,250)
+}
 .gameReady{
 	z-index: 5;
 	margin: 0 auto;
@@ -6,12 +9,17 @@
 	background: rgba(505,50,50,0.75);
 	text-align: center;
 }
-
+.gameArena{
+	display:flex;
+	justify-content: center;
+	margin-top: 150px;
+}
 .game{
 	display: flex;
-	justify-content: space-around;
-	align-items: stretch;
+	justify-content: center;
+	align-items: center;
 	flex-wrap: wrap;
+	width: 250px;
 }
 .touch{
 	width: 100px;
@@ -19,17 +27,21 @@
 }
 #red,#rd{
 	background: rgb(237, 33, 33);
+	border-radius: 0 45px 0 0;
 	
 }
 #green,#grn{
 	background: rgb(23, 170, 48);
+	border-radius: 45px 0 0 0;
 	
 }
 #blue,#bl{
 	background: rgb(40, 105, 225);
+	border-radius: 0 0 0 45px;
 }
 #yellow,#ylw{
 	background: rgb(238, 255, 0);
+	border-radius: 0 0 45px 0;
 	
 }
 #orng{
@@ -42,6 +54,8 @@
 	background: rgb(209, 6, 185);
 }
 .highlight{
-	opacity: 0.25;
-	box-shadow: 0 0 7px black;
+	opacity: 0.2;
+	box-shadow: 5px 0 5px black, 0 5px 5px black, -5px 0 5px black, 0 -5px 5px black;
+
+	
 }
