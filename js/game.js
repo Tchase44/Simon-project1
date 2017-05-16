@@ -1,6 +1,7 @@
 
 
 $(document).ready(function(){
+	{
 	const gameReady = $('.gameReady');
 	const gameArena = $('.gameArena');
 	const gameOverMan = $('section');
@@ -21,9 +22,7 @@ $(document).ready(function(){
 	}
 	const comp = {
 		easyIndex : [],
-		hardIndex :[],
 		highScore : 0,
-		highScoreHard : 0
 	}
 // Ready to play??
 // easy mode
@@ -44,8 +43,6 @@ $(document).ready(function(){
 		e.preventDefault();
 		reset();
 	})
-	
-	console.log(comp.easyIndex)
 
 // User click 
 	$('.touch').on("click",function(){
@@ -59,6 +56,7 @@ $(document).ready(function(){
 	})
 //start the game after delay
 	function startGame(){
+		user.touches = []
 		setTimeout(function(){showSequence(0)},900)
 	}
 
@@ -82,6 +80,7 @@ $(document).ready(function(){
 		let selection = randomEasy();
 		const colorEasy = ['green','red','blue','yellow']
 		comp.easyIndex.push(colorEasy[selection])
+		console.log(comp.easyIndex)
 	}
 
 //Check user answeres
@@ -133,5 +132,5 @@ $(document).ready(function(){
 	}
 
 
-
+}
 });

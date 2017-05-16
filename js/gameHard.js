@@ -1,6 +1,7 @@
 // Hard Mode
 
 $(document).ready(function(){
+  {
 //random number generator
   const randomHard = () => Math.floor(Math.random()*7)
 //jquery selectors
@@ -14,8 +15,8 @@ $(document).ready(function(){
   gameOverMan.hide()
   highScreen.hide()
 //user and computer
-  const user = {
-    touches : [],
+  const player2 = {
+    pushes : [],
     score : 0
   }
   const comp = {
@@ -37,10 +38,10 @@ $(document).ready(function(){
 
 // User click 
   $('.touch').on("click",function(){
-    user.touches.push($(this).attr("id"))
-    console.log("user= "+user.touches)
 
-    if (user.touches.length===comp.hardIndex.length) {
+    player2.pushes.push($(this).attr("id"))
+
+    if (player2.pushes.length===comp.hardIndex.length) {
       userCheckHard();
     }
 
@@ -53,10 +54,12 @@ $(document).ready(function(){
     let selection = randomHard();
     const colorHard = ['orng','teal','purp','grn','rd','blu','ylw']
     comp.hardIndex.push(colorHard[selection])
+    console.log(comp.hardIndex)
   }
 
 //start game after delay
 function startGameHard(){
+  player2.pushes = [];
   setTimeout(function(){showSequenceHard(0)},900)
 }
 
@@ -75,19 +78,19 @@ function startGameHard(){
 //Check user answeres
   function userCheckHard() {
     //will return true if all are right
-    let check = user.touches.every(function(element, index) {
+    let check = player2.pushes.every(function(element, index) {
       return element === comp.hardIndex[index]})
         
     if(check){
       populateHard()
       showSequenceHard(0)
-      user.score++
-      user.touches = [];
+      player2.score++
+      player2.pushes = [];
     }else{
-      highScoreHard(user.score)
+      highScoreHard(player2.score)
       comp.hardIndex = [];
-      user.touches = [];
-      user.score = 0
+      player2.pushes = [];
+      player2.score = 0
     }
   }
   //compare and set scores
@@ -109,7 +112,8 @@ function startGameHard(){
   };
   function scoring() {
     $("#highScore").text(comp.highScoreHard)
-    $("#userScore").text(user.score)
+    $("#userScore").text(player2.score)
   }
+}
 })
 	
