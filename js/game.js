@@ -10,14 +10,19 @@ $(document).ready(function(){
 		gameReady.hide('slow')
 		gameArena.show('fast')
 // game will start 1sec after click
-		setTimeout(function(){showSequence(0)},1000)
+		setTimeout(function(){showSequence(0)},900)
 	})	
 
 	//init vars
-	let userTouch = [];
+	// let user.touches = [];
+	const user = {
+		touches : [],
+		score : 0
+	}
 	const comp = {
 		easyIndex : [],
-		hardIndex :[]
+		hardIndex :[],
+		highScore : 0,
 	}
 
 
@@ -33,10 +38,10 @@ $(document).ready(function(){
 
 // User click 
 	$('.touch').on("click",function(){
-		userTouch.push($(this).attr("id"))
-		console.log("user= "+userTouch)
+		user.touches.push($(this).attr("id"))
+		console.log("user= "+user.touches)
 
-		if (userTouch.length===comp.easyIndex.length) {
+		if (user.touches.length===comp.easyIndex.length) {
 			userCheck();
 		}
 
@@ -45,7 +50,6 @@ $(document).ready(function(){
 
 
 //show the color sequence
-/* !!! needs to flash when same color is selected in a row !!! */
 	function showSequence(i) {
     	if (i > comp.easyIndex.length) return;
 
@@ -72,17 +76,27 @@ $(document).ready(function(){
 	}
 //Check user answeres
 	function userCheck() {
-		let check = userTouch.every(function(element, index) {
+		//will return true if all are right
+		let check = user.touches.every(function(element, index) {
     	return element === comp.easyIndex[index]})
     		
 		if(check){
 			populateEasy()
 			showSequence(0)
-			userTouch = [];
+			user.score++
+			user.touches = [];
 		}else{
 			gameOver();
+			highScore(user.score)
 			comp.easyIndex = [];
-			userTouch = [];
+			user.touches = [];
+		}
+	}
+/* !!! needs score counter !!! */
+	function highScore(score) {
+		if (score > comp.highScore) {
+			console.log(`new High Score!! ${user.score}`)
+			comp.highScore = score
 		}
 	}
 	/* !!!!  need a game over screen and reset !!!! */
