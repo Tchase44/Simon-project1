@@ -3,16 +3,33 @@
 $(document).ready(function(){
 	const gameReady = $('.gameReady');
 	const gameArena = $('.gameArena');
-	
+	const gameOverMan = $('section');
+	const highScreen = $('.highScoreScreen');
 //overlay div for game prompt
 	gameArena.hide()
+	gameOverMan.hide()
+	highScreen.hide()
+//returns random number
+	const randomEasy = () => Math.floor(Math.random()*4)
+	const randomHard = () => Math.floor(Math.random()*7)
+
+// Ready to play??
 	gameReady.on('click',function(){
 		gameReady.hide('slow')
 		gameArena.show('fast')
-// game will start 1sec after click
-		setTimeout(function(){showSequence(0)},900)
-	})	
+		
+		//starting color
+		populateEasy();
 
+		// game will start 1sec after click
+			startGame();
+		})
+//reset
+	$('h2').on("click",(e)=>{
+		e.preventDefault();
+		reset();
+	})
+	
 	//init vars
 	// let user.touches = [];
 	const user = {
@@ -25,16 +42,8 @@ $(document).ready(function(){
 		highScore : 0,
 	}
 
-
-
-
-//returns random number
-	const randomEasy = () => Math.floor(Math.random()*4)
-	const randomHard = () => Math.floor(Math.random()*7)
-	populateEasy();
 	
 	console.log(comp.easyIndex)
-
 
 // User click 
 	$('.touch').on("click",function(){
@@ -46,7 +55,10 @@ $(document).ready(function(){
 		}
 
 	})
-
+//start the game after delay
+function startGame(){
+	setTimeout(function(){showSequence(0)},900)
+}
 
 
 //show the color sequence
@@ -86,23 +98,41 @@ $(document).ready(function(){
 			user.score++
 			user.touches = [];
 		}else{
-			gameOver();
 			highScore(user.score)
 			comp.easyIndex = [];
 			user.touches = [];
+			user.score = 0
 		}
 	}
-/* !!! needs score counter !!! */
+//compare and set scores
 	function highScore(score) {
 		if (score > comp.highScore) {
-			console.log(`new High Score!! ${user.score}`)
 			comp.highScore = score
+			$('.highScoreScreen h3').text(`${comp.highScore} ...Good Work!`)
+			highScreen.show()
+			gameArena.hide()
+		}else{
+			gameOver()
+			gameOverMan.show()
 		}
 	}
-	/* !!!!  need a game over screen and reset !!!! */
-	function gameOver(){console.log("game over man")};
-
-
+//shows game over sceen
+	function gameOver(){
+		gameArena.hide()
+		scoring()
+	};
+	function scoring() {
+		$("#highScore").text(comp.highScore)
+		$("#userScore").text(user.score)
+	}
+//reset switch
+	function reset() {
+		gameOverMan.hide()
+		highScreen.hide()
+		gameArena.hide()
+		gameReady.show()
+		console.log(`user score = ${user.score}/ high score = ${comp.highScore}`)
+	}
 
 
 
