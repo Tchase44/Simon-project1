@@ -5,13 +5,7 @@ $(document).ready(function(){
 //random number generator
   const randomHard = () => Math.floor(Math.random()*7)
 
-
-//highScore setup
-  if (localStorage.highScoreHard > 0) {
-    return
-  }else{
-    localStorage.setItem("highScoreHard",0)
-  }
+highScoreSetup();
 
 
 //jquery selectors
@@ -57,7 +51,16 @@ $(document).ready(function(){
 
   })
 
+//highScore setup
+function highScoreSetup() {
 
+
+  if (localStorage.highScoreHard > 0) {
+    return
+  }else{
+    localStorage.setItem("highScoreHard",0)
+  }
+}
 
 // fill the array with colors
   function populateHard() {

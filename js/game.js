@@ -24,13 +24,8 @@ $(document).ready(function(){
 		easyIndex : [],
 		// highScore : 0,
 	}
-//setup for highscore saving
-	if (localStorage.highScore > 0) {
-		return
-	}else{
-		localStorage.setItem("highScore",0)
-	}
-
+//set up score saving
+setupSaving();
 // Ready to play??
 // easy mode
 	$('#four').on('click',function(){
@@ -66,7 +61,12 @@ $(document).ready(function(){
 		user.touches = []
 		setTimeout(function(){showSequence(0)},900)
 	}
+//setup localStorage in browser
+function setupSaving() {
 
+	if (localStorage.highScore > 0) { return }
+	else { localStorage.setItem("highScore",0) }
+}
 
 //show the color sequence
 	function showSequence(i) {
