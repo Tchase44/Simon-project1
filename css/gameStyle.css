@@ -1,5 +1,6 @@
 body{
 	background: rgb(250,250,250)
+	min-width:510px;
 }
 .gameReady{
 	box-sizing: border-box;
@@ -7,7 +8,7 @@ body{
 	font-size: 200%;
 	margin: 0 auto;
 	width: 75vw;
-	height: 85vh;
+	height: 95vh;
 	background: rgba(505,50,50,0.75);
 	text-align: center;
 	padding: 30px; 
@@ -28,8 +29,13 @@ body{
 	font-family: 'Roboto Slab', serif;
 }
 .gameReady span:hover{
-	color:rgba(1,1,1,0.5);
 	cursor: pointer;
+}
+#four:hover{
+	color: rgb(255,255,255)
+}
+#seven:hover{
+	color: rgb(160,0,0);
 }
 .gameOver{
 	font-family: 'VT323', monospace;
@@ -83,8 +89,7 @@ body{
 	cursor: pointer;
 	color: rgba(1,1,1,0.5);
 }
-#four{}
-#seven{}
+
 .gameArena{
 	display:flex;
 	justify-content: center;
@@ -128,6 +133,7 @@ body{
 
 #hard{
   display: block;
+  position: relative;
   box-sizing:border-box;
   width:508px;
   margin: 0 auto;
