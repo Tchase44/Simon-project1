@@ -105,7 +105,7 @@ $(document).ready(function(){
 	function highScore(score) {
 		if (score > comp.highScore) {
 			comp.highScore = score
-			Localstorage.setItem("highScore",score)
+			localStorage.setItem("highScore",score)
 			$('.highScoreScreen h3').text(`${comp.highScore} ...Good Work!`)
 			highScreen.show()
 			gameArena.hide()
