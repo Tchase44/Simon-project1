@@ -24,8 +24,13 @@ $(document).ready(function(){
 		easyIndex : [],
 		// highScore : 0,
 	}
-	//highScore saving
-	localStorage.setItem("highScore",0)
+//setup for highscore saving
+	if (localStorage.highScore > 0) {
+		return
+	}else{
+		localStorage.setItem("highScore",0)
+	}
+
 // Ready to play??
 // easy mode
 	$('#four').on('click',function(){

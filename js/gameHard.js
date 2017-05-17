@@ -5,8 +5,13 @@ $(document).ready(function(){
 //random number generator
   const randomHard = () => Math.floor(Math.random()*7)
 
-//highScore saving
-localStorage.setItem("highScoreHard",0)
+
+//highScore setup
+  if (localStorage.highScoreHard > 0) {
+    return
+  }else{
+    localStorage.setItem("highScoreHard",0)
+  }
 
 
 //jquery selectors
