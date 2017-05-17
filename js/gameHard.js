@@ -4,6 +4,11 @@ $(document).ready(function(){
   {
 //random number generator
   const randomHard = () => Math.floor(Math.random()*7)
+
+//highScore saving
+localStorage.setItem("highScoreHard",0)
+
+
 //jquery selectors
   const gameReady = $('.gameReady');
   const gameArena = $('.gameArena');
@@ -95,9 +100,9 @@ function startGameHard(){
   }
   //compare and set scores
   function highScoreHard(score) {
-    if (score > comp.highScoreHard) {
-      comp.highScoreHard = score
-      $('.highScoreScreen h3').text(`${comp.highScoreHard} ...Good Work!`)
+    if (score > localStorage.highScoreHard) {
+      localStorage.highScoreHard = score
+      $('.highScoreScreen h3').text(`${localStorage.highScoreHard} ...Good Work!`)
       highScreen.show()
       gameArena.hide()
     }else{
@@ -111,7 +116,7 @@ function startGameHard(){
     scoring()
   };
   function scoring() {
-    $("#highScore").text(comp.highScoreHard)
+    $("#highScore").text(localStorage.getItem("highScoreHard")
     $("#userScore").text(player2.score)
   }
 }
