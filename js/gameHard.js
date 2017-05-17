@@ -116,7 +116,7 @@ function startGameHard(){
     scoring()
   };
   function scoring() {
-    $("#highScore").text(localStorage.getItem("highScoreHard")
+    $("#highScore").text(localStorage.highScoreHard)
     $("#userScore").text(player2.score)
   }
 }
