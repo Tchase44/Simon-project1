@@ -105,6 +105,7 @@ $(document).ready(function(){
 	function highScore(score) {
 		if (score > comp.highScore) {
 			comp.highScore = score
+			Localstorage.setItem("highScore",score)
 			$('.highScoreScreen h3').text(`${comp.highScore} ...Good Work!`)
 			highScreen.show()
 			gameArena.hide()
@@ -119,7 +120,7 @@ $(document).ready(function(){
 		scoring()
 	};
 	function scoring() {
-		$("#highScore").text(comp.highScore)
+		$("#highScore").text(localStorage.getItem("highScore"))
 		$("#userScore").text(user.score)
 	}
 //reset switch
