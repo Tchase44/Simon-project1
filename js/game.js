@@ -49,7 +49,7 @@ setupSaving();
 // User click 
 	$('.touch').on("click",function(){
 		user.touches.push($(this).attr("id"))
-		console.log("user= "+user.touches)
+		// console.log("user= "+user.touches)
 
 		if (user.touches.length===comp.easyIndex.length) {
 			userCheck();
@@ -87,7 +87,7 @@ function setupSaving() {
 		let selection = randomEasy();
 		const colorEasy = ['green','red','blue','yellow']
 		comp.easyIndex.push(colorEasy[selection])
-		console.log(comp.easyIndex)
+		// console.log(comp.easyIndex)
 	}
 
 //Check user answeres
@@ -136,9 +136,8 @@ function setupSaving() {
 		highScreen.hide()
 		gameArena.hide()
 		gameReady.show()
-		console.log(`user score = ${user.score}/ high score = ${localStorage.highScore}`)
+		// console.log(`user score = ${user.score}/ high score = ${localStorage.highScore}`)
 	}
-
 
 }
 });

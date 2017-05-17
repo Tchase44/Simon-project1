@@ -67,7 +67,7 @@ function highScoreSetup() {
     let selection = randomHard();
     const colorHard = ['orng','teal','purp','grn','rd','blu','ylw']
     comp.hardIndex.push(colorHard[selection])
-    console.log(comp.hardIndex)
+    // console.log(comp.hardIndex)
   }
 
 //start game after delay
