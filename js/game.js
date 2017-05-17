@@ -22,8 +22,10 @@ $(document).ready(function(){
 	}
 	const comp = {
 		easyIndex : [],
-		highScore : 0,
+		// highScore : 0,
 	}
+	//highScore saving
+	localStorage.setItem("highScore",0)
 // Ready to play??
 // easy mode
 	$('#four').on('click',function(){
@@ -103,10 +105,10 @@ $(document).ready(function(){
 	}
 //compare and set scores
 	function highScore(score) {
-		if (score > comp.highScore) {
-			comp.highScore = score
+		if (score > localStorage.highScore) {
+			// comp.highScore = score
 			localStorage.setItem("highScore",score)
-			$('.highScoreScreen h3').text(`${comp.highScore} ...Good Work!`)
+			$('.highScoreScreen h3').text(`${localStorage.highScore} ...Good Work!`)
 			highScreen.show()
 			gameArena.hide()
 		}else{
@@ -129,7 +131,7 @@ $(document).ready(function(){
 		highScreen.hide()
 		gameArena.hide()
 		gameReady.show()
-		console.log(`user score = ${user.score}/ high score = ${comp.highScore}`)
+		console.log(`user score = ${user.score}/ high score = ${localStorage.highScore}`)
 	}
 
 
