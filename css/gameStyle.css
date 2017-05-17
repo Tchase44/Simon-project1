@@ -4,12 +4,11 @@ body{
 }
 .gameReady{
 	box-sizing: border-box;
-	z-index: 5;
 	font-size: 200%;
 	margin: 0 auto;
 	width: 75vw;
 	height: 95vh;
-	background: rgba(505,50,50,0.75);
+	background: rgba(255,50,50,0.75);
 	text-align: center;
 	padding: 30px; 
 }
@@ -17,11 +16,13 @@ body{
 	padding-top: 10%;
     font-size: 150%;
     font-family: 'Bitter', serif;
+    text-shadow: 1px 1px 0px lavender;
 }
 .gameReady h3{
 	padding: 10px;
 	font-weight: bold;
 	font-family: 'Bitter', serif;
+	text-shadow: 1px 1px 0px lavender;
 }
 .gameReady p{
 	padding: 10px;
