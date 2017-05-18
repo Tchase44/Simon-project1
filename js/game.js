@@ -42,7 +42,7 @@ setupSaving();
 		startGame();
 	})
 
-//Reset
+//Reset ---> could possibly just write ".click" rather than ".on" then a listener event such as ("click").
 	$('h2').on("click",(e)=>{
 		e.preventDefault();
 		reset();
@@ -93,7 +93,7 @@ function setupSaving() {
 		// console.log(comp.easyIndex)
 	}
 
-//Check User Answeres
+//Check User Answeres <------ one of the few things I can actually comment on. "Answer."
 	function userCheck() {
 		//will return true if all are right
 		let check = user.touches.every(function(element, index) {
@@ -142,5 +142,5 @@ function setupSaving() {
 		// console.log(`user score = ${user.score}/ high score = ${localStorage.highScore}`)
 	}
 
-}
+} //<---- space. I thought I actually found something you evil bastard.
 });
