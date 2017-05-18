@@ -13,7 +13,7 @@ The orirginal plan was to create a Game object/class to contain all the logic. B
 So the code is a bit messy but i did my best to comment so one can fallow along.
 
 CSS design was to make the game as simple and as self explainitory as possible.
-I found inspiration for the hard mode style after hex-grid games. I found a few tutorials of making hexagons with pure css and used relative positioning to get every thing pixel perfect
+I found inspiration for the hard mode style after hex-grid games. I found a few tutorials of making hexagons with pure css and used relative positioning to get every hexagon in pixel perfect placement.
 
 ## INSTALLATION INSTRUCTIONS
 
