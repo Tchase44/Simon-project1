@@ -2,6 +2,9 @@ body{
 	background: rgb(250,250,250);
 	min-width:510px;
 }
+
+/*  Starting Screen  */
+
 .gameReady{
 	box-sizing: border-box;
 	font-size: 200%;
@@ -38,6 +41,9 @@ body{
 #seven:hover{
 	color: rgb(160,0,0);
 }
+
+/*   Game Over Screen */
+
 .gameOver{
 	font-family: 'VT323', monospace;
 	text-align: center;
@@ -63,6 +69,9 @@ body{
 .gameOver >*{
 	animation: scroll 20s linear;
 }
+
+/*    High Score Screen   */
+
 .highScoreScreen{
 	text-align: center;
 	width:100vw;
@@ -91,6 +100,8 @@ body{
 	color: rgba(1,1,1,0.5);
 }
 
+/*    The Play Area   */
+
 .gameArena{
 	display:flex;
 	justify-content: center;
@@ -103,11 +114,11 @@ body{
 	flex-wrap: wrap;
 	width: 250px;
 }
-
 .touch{
 	width: 100px;
 	height: 100px;
 }
+/*  Easy Mode Styles  */
 #standard div{
     width: 125px;
     height: 124px;
@@ -131,6 +142,8 @@ body{
 	border-radius: 0 0 45px 0;
 	
 }
+
+/* Hard Mode Styles */
 
 #hard{
   display: block;
@@ -251,11 +264,15 @@ body{
 #purp:before{
   border-bottom:30px solid rgb(209,6,185);
 }
+
+/*   Flash   */
+
 .highlight{
 	opacity: 0.2;
 	box-shadow: 5px 0 5px black, 0 5px 5px black, -5px 0 5px black, 0 -5px 5px black;
 }
 
+/*    Gme Over Animation */
 
 @keyframes scroll {
 	0% { padding-top: 0%; }

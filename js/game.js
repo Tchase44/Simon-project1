@@ -1,12 +1,13 @@
-
+//Easy Mode
 
 $(document).ready(function(){
 	{
+	//JQuery Targets
 	const gameReady = $('.gameReady');
 	const gameArena = $('.gameArena');
 	const gameOverMan = $('section');
 	const highScreen = $('.highScoreScreen');
-//overlay div for game prompt
+//Force Overly for Game Start Prompt
 	$('#hard').hide()
 	gameArena.hide()
 	gameOverMan.hide()
@@ -14,20 +15,21 @@ $(document).ready(function(){
 //returns random number
 	const randomEasy = () => Math.floor(Math.random()*4)
 
-
-//user and computer
+//User and Computer
 	const user = {
 		touches : [],
 		score : 0
 	}
 	const comp = {
 		easyIndex : [],
-		// highScore : 0,
+		// cpuHighScore : 0,
 	}
-//set up score saving
+//Set up Score Saving
 setupSaving();
-// Ready to play??
-// easy mode
+
+/*           Ready to Play??          */
+
+//the clicks
 	$('#four').on('click',function(){
 		gameReady.hide('slow')
 		gameArena.show('fast')
@@ -40,7 +42,7 @@ setupSaving();
 		startGame();
 	})
 
-//reset
+//Reset
 	$('h2').on("click",(e)=>{
 		e.preventDefault();
 		reset();
@@ -56,19 +58,20 @@ setupSaving();
 		}
 
 	})
-//start the game after delay
+///////////////////////////////////////
+//Start the Game After Delay
 	function startGame(){
 		user.touches = []
 		setTimeout(function(){showSequence(0)},900)
 	}
-//setup localStorage in browser
+//Setup localStorage in Browser
 function setupSaving() {
 
-	if (localStorage.highScore > 0) { return }
+	if ( localStorage.highScore > 0 ) { return }
 	else { localStorage.setItem("highScore",0) }
 }
 
-//show the color sequence
+//Show the Color Sequence
 	function showSequence(i) {
     	if (i > comp.easyIndex.length) return;
 
@@ -82,7 +85,7 @@ function setupSaving() {
     		
 		}
 	
-//fills the array with color
+//Fills the Array with Color
 	function populateEasy() {
 		let selection = randomEasy();
 		const colorEasy = ['green','red','blue','yellow']
@@ -90,7 +93,7 @@ function setupSaving() {
 		// console.log(comp.easyIndex)
 	}
 
-//Check user answeres
+//Check User Answeres
 	function userCheck() {
 		//will return true if all are right
 		let check = user.touches.every(function(element, index) {
@@ -108,10 +111,10 @@ function setupSaving() {
 			user.score = 0
 		}
 	}
-//compare and set scores
+//Compare and Set Scores
 	function highScore(score) {
 		if (score > localStorage.highScore) {
-			// comp.highScore = score
+			// comp.cpuHighScore = score
 			localStorage.setItem("highScore",score)
 			$('.highScoreScreen h3').text(`${localStorage.highScore} ...Good Work!`)
 			highScreen.show()
@@ -121,7 +124,7 @@ function setupSaving() {
 			gameOverMan.show()
 		}
 	}
-//shows game over sceen
+//Shows Game Over Sceen
 	function gameOver(){
 		gameArena.hide()
 		scoring()
@@ -130,7 +133,7 @@ function setupSaving() {
 		$("#highScore").text(localStorage.getItem("highScore"))
 		$("#userScore").text(user.score)
 	}
-//reset switch
+//Reset Switch
 	function reset() {
 		gameOverMan.hide()
 		highScreen.hide()

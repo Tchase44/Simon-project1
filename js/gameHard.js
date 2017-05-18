@@ -4,7 +4,7 @@ $(document).ready(function(){
   {
 //random number generator
   const randomHard = () => Math.floor(Math.random()*7)
-
+//Setup localStorage to save games
 highScoreSetup();
 
 
@@ -13,7 +13,7 @@ highScoreSetup();
   const gameArena = $('.gameArena');
   const gameOverMan = $('section');
   const highScreen = $('.highScoreScreen');
-//overlay div for game prompt
+//Force game overlay
   $('#hard').hide()
   gameArena.hide()
   gameOverMan.hide()
@@ -27,7 +27,7 @@ highScoreSetup();
     hardIndex :[],
     highScoreHard : 0
   }
-// Hard mode
+// the clicks
   $('#seven').on('click',function(){
     gameReady.hide('slow')
     gameArena.show('fast')
