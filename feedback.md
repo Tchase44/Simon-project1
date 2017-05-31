@@ -1,6 +1,6 @@
 # Project 1 Evaluation
 
-[inline code comments]()
+[inline code comments](https://github.com/Tchase44/Simon-project1/pull/2/files)
 
 ## Planning / Process / Submission
 
