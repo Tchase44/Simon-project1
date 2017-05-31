@@ -10,8 +10,9 @@ body{
 	height: 95vh;
 	background: rgba(255,50,50,0.75);
 	text-align: center;
-	padding: 30px; 
+	padding: 30px;
 }
+/* AM: Be consistent with indentation and spacing! */
 .gameReady h1{
 	padding-top: 10%;
     font-size: 150%;
@@ -57,8 +58,8 @@ body{
 	cursor: pointer;
 	color: rgba(56, 183, 18,0.5)
 }
-.gameOver h1{	
-	font-size: 600%;	
+.gameOver h1{
+	font-size: 600%;
 }
 .gameOver >*{
 	animation: scroll 20s linear;
@@ -90,7 +91,7 @@ body{
 	cursor: pointer;
 	color: rgba(1,1,1,0.5);
 }
-
+/* AM: If you find that you are repeating the same flex properties in your stylesheet, consider putting them in their own class (e.g., `flex-center`) and then adding that class to the relevant HTML elements. */
 .gameArena{
 	display:flex;
 	justify-content: center;
@@ -115,12 +116,12 @@ body{
 #red{
 	background: rgb(237, 33, 33);
 	border-radius: 0 45px 0 0;
-	
+
 }
 #green{
 	background: rgb(23, 170, 48);
 	border-radius: 45px 0 0 0;
-	
+
 }
 #blue{
 	background: rgb(40, 105, 225);
@@ -129,7 +130,7 @@ body{
 #yellow{
 	background: rgb(238, 255, 0);
 	border-radius: 0 0 45px 0;
-	
+
 }
 
 #hard{
@@ -143,7 +144,7 @@ body{
 #hard div{
   transform:rotate(30deg);
 }
-.hexagon:before{
+.hexagon:before{	/* AM: Nice! */
   content: " ";
   width: 0;
   height: 0;
@@ -173,12 +174,14 @@ body{
   position:relative;
   left:210px;
 }
+/* AM: These next two selectors look exactly the same. Try combining them into a single selector. */
+/* AM: Looks like this applies to a number of selectors later on in here... */
  #rd:after{
   border-top: 30px solid rgb(237,33,33);
 }
 #rd:before{
   border-bottom: 30px solid rgb(237,33,33);
-} 
+}
 #grn{
   background: rgb(23, 170, 48);
   position:relative;
@@ -245,6 +248,8 @@ body{
   left: 110px;
   top: -420px;
 }
+/* AM: If you're looking to level up in CSS, look into how you could use SASS loops to condense these color assignments. */
+/* AM: A place to start: https://benfrain.com/working-with-lists-and-each-loops-in-sass-with-the-index-and-nth-function/ */
 #purp:after{
   border-top:30px solid rgb(209,6,185);
 }
@@ -261,5 +266,3 @@ body{
 	0% { padding-top: 0%; }
 	100% { padding-top: 15%; }
 }
-
-

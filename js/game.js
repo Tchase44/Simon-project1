@@ -1,5 +1,5 @@
 
-
+// AM: Encourage you to think about how you could organize all of this into an object or class. Would level up your code organization and readabilty!
 $(document).ready(function(){
 	{
 	const gameReady = $('.gameReady');
@@ -7,6 +7,7 @@ $(document).ready(function(){
 	const gameOverMan = $('section');
 	const highScreen = $('.highScoreScreen');
 //overlay div for game prompt
+	// AM: Rather than hide these on page load using Javascript, why not just set `display: none` in your CSS?
 	$('#hard').hide()
 	gameArena.hide()
 	gameOverMan.hide()
@@ -32,7 +33,7 @@ setupSaving();
 		gameReady.hide('slow')
 		gameArena.show('fast')
 		$('#hard').hide()
-		
+
 		//starting color
 		populateEasy();
 
@@ -46,7 +47,7 @@ setupSaving();
 		reset();
 	})
 
-// User click 
+// User click
 	$('.touch').on("click",function(){
 		user.touches.push($(this).attr("id"))
 		// console.log("user= "+user.touches)
@@ -64,8 +65,8 @@ setupSaving();
 //setup localStorage in browser
 function setupSaving() {
 
-	if (localStorage.highScore > 0) { return }
-	else { localStorage.setItem("highScore",0) }
+	if (localStorage.highScore > 0) { return }	// AM: Since you're trying to save space with this conditional, look into using a ternary statement here.
+	else { localStorage.setItem("highScore",0) }	// AM: Nice!
 }
 
 //show the color sequence
@@ -79,9 +80,9 @@ function setupSaving() {
     		setTimeout(function(){
 				$('#'+comp.easyIndex[i]).addClass('highlight');
 			},100)
-    		
+
 		}
-	
+
 //fills the array with color
 	function populateEasy() {
 		let selection = randomEasy();
@@ -95,7 +96,7 @@ function setupSaving() {
 		//will return true if all are right
 		let check = user.touches.every(function(element, index) {
     	return element === comp.easyIndex[index]})
-    		
+
 		if(check){
 			populateEasy()
 			showSequence(0)
@@ -132,6 +133,8 @@ function setupSaving() {
 	}
 //reset switch
 	function reset() {
+		// AM: Perhaps you could define functions that take care of the show-hide functionality.
+		// AM: I say this because I notice a lot of show and hide commands scattered throughout your code.
 		gameOverMan.hide()
 		highScreen.hide()
 		gameArena.hide()

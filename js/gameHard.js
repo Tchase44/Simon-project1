@@ -1,5 +1,7 @@
 // Hard Mode
-
+// AM: I'm guessing there is a lot of duplicated code here that looks similar to what you have in `game.js`
+// AM: A great refactoring opportunity would be to create a `Game` class, and use that class to generate two instances of the game: "normal" and "hard"
+// AM: When generating those instances, you would need to make sure to pass in whatever properties are specific to those difficulties (e.g., number of tiles, tile colors)
 $(document).ready(function(){
   {
 //random number generator
@@ -32,7 +34,7 @@ highScoreSetup();
     gameReady.hide('slow')
     gameArena.show('fast')
     $('#easy').hide()
-    
+
     //starting color
     populateHard();
 
@@ -40,7 +42,7 @@ highScoreSetup();
     startGameHard();
   })
 
-// User click 
+// User click
   $('.touch').on("click",function(){
 
     player2.pushes.push($(this).attr("id"))
@@ -86,14 +88,14 @@ function startGameHard(){
     		setTimeout(function(){
 				$('#'+comp.hardIndex[i]).addClass('highlight');
 			},100)
-    		
+
 		}
 //Check user answeres
   function userCheckHard() {
     //will return true if all are right
     let check = player2.pushes.every(function(element, index) {
       return element === comp.hardIndex[index]})
-        
+
     if(check){
       populateHard()
       showSequenceHard(0)
@@ -129,4 +131,3 @@ function startGameHard(){
   }
 }
 })
-	
