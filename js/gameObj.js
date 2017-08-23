@@ -120,7 +120,7 @@ setupSaving();
 
 //Setup localStorage in Browser
 	function setupSaving() {
-		localStorage.highScore > 0 ? return : localStorage.setItem("highScore",0)
+		localStorage.highScore > 0 ? true : localStorage.setItem("highScore",0)
 	}
 //Shows Game Over Sceen
 	function gameOver(){
